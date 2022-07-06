@@ -40,14 +40,16 @@
         <section class="my-5">
             <h1 class="display-3 text-center">Administrar Productos</h1>
             <hr>
-            <form>
+            <form id="formProducto">
                 <div class="mb-3">
                     <label for="codigo" class="form-label">Codigo</label>
                     <input type="text" class="form-control" id="codigo" placeholder="123">
+                    <div class="invalid-feedback">Debe ingresar un codigo alfanumerico</div>
                 </div>
                 <div class="mb-3">
                     <label for="producto" class="form-label">Producto</label>
                     <input type="text" class="form-control" id="producto" placeholder="The Child">
+                    <div class="invalid-feedback">Debe ingresar un producto</div>
                 </div>
                 <div class="mb-3">
                     <label for="descripcion" class="form-label">Descripcion</label>
@@ -56,14 +58,49 @@
                 <div class="mb-3">
                     <label for="cantidad" class="form-label">Cantidad</label>
                     <input type="text" class="form-control" id="cantidad" placeholder="2">
+                    <div class="invalid-feedback">Debe ingresar un numero</div>
                 </div>
                 <div class="mb-3">
                     <label for="url" class="form-label">URL</label>
                     <input type="text" class="form-control" id="url" placeholder="http://127.0.0.1:5500/img.jpg">
+                    <div class="invalid-feedback">Debe ingresar una URL valida</div>
                 </div>
-                <button class="btn btn-primary" type="submit">Guardar</button>
+                <button class="btn btn-primary" type="submit" onclick="">Guardar</button>
             </form>
-
+            <div class="alert alert-danger my-5 d-none" role="alert" id="msjAlerta">
+               Debe completar todos los campos
+              </div>
+        </section>
+        <section class="my-5">
+            <h1 class="display-3 text-center">Administrar Productos</h1>
+            <hr>
+            <button class="btn btn-primary">Nuevo</button>
+            <button class="btn btn-secondary">Cargar datos de prueba</button>
+            <div class="mt-5">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Cod.</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">URL</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">123</th>
+                        <td>Nombre producto</td>
+                        <td>Lorem ipsum dolor sit amet consectetur adipisicing.</td>
+                        <td>12</td>
+                        <td>Lorem ipsum dolor sit.</td>
+                        <td>
+                            <button class="btn btn-warning">Editar</button>
+                            <button class="btn btn-danger">Borrar</button>
+                        </td>
+                      </tr>
+            </div>
         </section>
     </main>
     <footer></footer>
