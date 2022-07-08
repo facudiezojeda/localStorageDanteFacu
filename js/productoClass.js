@@ -9,4 +9,20 @@ export class Producto{
     }
 
     //geters y seters (se agregan siempre?)
+
+    get mostrarCodigo(){
+        return this.codigo
+    }
+    get mostrarProducto(){
+        return this.producto
+    }
+    get mostrarDescripcion(){
+        return this.descripcion
+    }
+    get mostrarCantidad(){
+        return this.cantidad
+    }
+    get mostrarUrl(){
+        return this.url
+    }
 }

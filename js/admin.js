@@ -26,7 +26,6 @@ function guardarProducto(e) {
         crearProducto();
     }
 
-
 }
 
 function crearProducto() {
@@ -37,6 +36,8 @@ function crearProducto() {
     console.log(listaProductos);
     //limpiar formulario
     limpiarFormulario();
+    // guardar arreglo de productos dentro de local storage
+    guardarLocalStorage();
 }
 
 function limpiarFormulario(){
@@ -47,5 +48,10 @@ function limpiarFormulario(){
     campoProducto.className = "form-control";
     campoDescripcion.className = "form-control";
     campoCantidad.className = "form-control";
-    campoURL.className = "form-control";
+    campoURL .className = "form-control";
 }
+
+function guardarLocalStorage(){
+    localStorage.setItem("arregloProductosKey", JSON.stringify(listaProductos) )
+}
+
