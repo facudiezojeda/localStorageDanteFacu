@@ -8,7 +8,8 @@ let campoDescripcion = document.querySelector("#descripcion")
 let campoCantidad = document.querySelector("#cantidad")
 let campoURL = document.querySelector("#url")
 let formularioProducto = document.querySelector("#formProducto")
-let listaProductos = [];
+// si hay algo en ls quiero guardarlo en arreglo, sino que sea un arreglo vacio
+let listaProductos = JSON.parse(localStorage.getItem("arregloProductosKey")) || [];
 
 //asociar un evento a un elemento de html desde js
 campoCodigo.addEventListener("blur", () => { campoRequerido(campoCodigo) })
