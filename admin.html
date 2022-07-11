@@ -9,6 +9,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Practica de CRUD</title>
 </head>
 
@@ -68,8 +69,8 @@
                 <button class="btn btn-primary" type="submit" onclick="">Guardar</button>
             </form>
             <div class="alert alert-danger my-5 d-none" role="alert" id="msjAlerta">
-               Debe completar todos los campos
-              </div>
+                Debe completar todos los campos
+            </div>
         </section>
         <section class="my-5">
             <h1 class="display-3 text-center">Administrar Productos</h1>
@@ -79,27 +80,18 @@
             <div class="mt-5">
                 <table class="table">
                     <thead>
-                      <tr>
-                        <th scope="col">Cod.</th>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">URL</th>
-                        <th scope="col">Acciones</th>
-                      </tr>
+                        <tr>
+                            <th scope="col">Cod.</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">123</th>
-                        <td>Nombre producto</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing.</td>
-                        <td>12</td>
-                        <td>Lorem ipsum dolor sit.</td>
-                        <td>
-                            <button class="btn btn-warning">Editar</button>
-                            <button class="btn btn-danger">Borrar</button>
-                        </td>
-                      </tr>
+                    <tbody id="tablaProductos">
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>

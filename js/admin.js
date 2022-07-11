@@ -19,6 +19,9 @@ campoCantidad.addEventListener("blur", () => { validarNumeros((campoCantidad)) }
 campoURL.addEventListener("blur", () => { validarURL(campoURL) })
 formularioProducto.addEventListener("submit", guardarProducto);
 
+//llamo a carga inicial
+ cargaInicial();
+
 function guardarProducto(e) {
     //verificar que todos los datos sean validos
     e.preventDefault()
@@ -30,7 +33,8 @@ function guardarProducto(e) {
 }
 
 function crearProducto() {
-    //crear un objeto producto    
+    //crear un objeto producto  
+
     let productoNuevo = new Producto(campoCantidad.value, campoProducto.value, campoDescripcion.value, campoCantidad.value, campoURL.value);
     //guardar objeto dentro del arreglo del producto
     listaProductos.push(productoNuevo);
@@ -39,6 +43,14 @@ function crearProducto() {
     limpiarFormulario();
     // guardar arreglo de productos dentro de local storage
     guardarLocalStorage();
+    //mostrar producto creado al usuario
+    Swal.fire(
+        'Bien hecho!',
+        'Se creo el producto correctamente!',
+        'success'
+      )
+    // cargar producto en la tabla maquetada
+    crearFila(productoNuevo);
 }
 
 function limpiarFormulario(){
@@ -56,3 +68,23 @@ function guardarLocalStorage(){
     localStorage.setItem("arregloProductosKey", JSON.stringify(listaProductos) )
 }
 
+function crearFila(producto){
+    let tablaProductos = document.querySelector("#tablaProductos");
+    tablaProductos.innerHTML += `<tr>
+    <th scope="row">${producto.codigo}</th>
+    <td>${producto.producto}</td>
+    <td>${producto.descripcion}</td>
+    <td>${producto.cantidad}</td>
+    <td>${producto.url}</td>
+    <td>
+        <button class="btn btn-warning">Editar</button>
+        <button class="btn btn-danger">Borrar</button>
+    </td>
+  </tr>`
+}
+
+function cargaInicial(){
+    if(listaProductos.length > 0)
+    //crear filas
+    listaProductos.forEach((itemProducto)=>{crearFila(itemProducto)}); 
+}
